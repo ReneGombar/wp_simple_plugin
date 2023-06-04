@@ -1,0 +1,48 @@
+/* Styles for the custom post part in the wp_admin Courses panel*/
+.courseContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    gap: 1.5em;
+    background-color: rgba(109, 137, 241, 0.357);
+}
+
+.fieldCountainer{
+    border-radius: 1em;
+    background-color: rgba(0, 0, 255, 0.12);
+    display: inherit;
+    flex-direction: column;
+    align-items:center;
+    padding: 1em;
+    width: 50%;
+}
+
+.fieldCountainer h6{
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+}
+
+.fieldCountainer input{
+    display: flex;
+    width: 80%;
+}
+
+/*STYLES for the custom template when displaying the course in the course view*/
+.courseTemplate{
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    border: 2px solid rgb(230, 33, 33);
+    width: 75%;
+    background-color: rgb(85, 88, 107);
+    color: rgb(193, 193, 193);
+}
+
+.topTemplate{
+    display: flex;
+}
+
