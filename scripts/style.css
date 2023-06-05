@@ -1,13 +1,4 @@
 /* Styles for the custom post part in the wp_admin Courses panel*/
-.courseContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-    gap: 1.5em;
-    background-color: rgba(109, 137, 241, 0.357);
-}
-
 .fieldCountainer{
     border-radius: 1em;
     background-color: rgba(0, 0, 255, 0.12);
@@ -30,19 +21,62 @@
 }
 
 /*STYLES for the custom template when displaying the course in the course view*/
-.courseTemplate{
-    margin-top: 0;
+.bodyTemplate{
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content: center;
-    border: 2px solid rgb(230, 33, 33);
-    width: 75%;
-    background-color: rgb(85, 88, 107);
-    color: rgb(193, 193, 193);
+    align-items: center;
+    background-color: rgba(109, 137, 241, 0.357);
+}
+
+.courseContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    gap: 1.5em;
+    width: 70%;
+    background-color: rgba(38, 55, 115, 0.357);
 }
 
 .topTemplate{
     display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color:rgba(202, 138, 138, 0.552);
 }
 
+    .topTemplate h3 {
+        margin: 0;
+    }
+
+    
+.mainTemplate{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    gap:1em;
+    justify-content: center;
+}
+
+    .mainTemplate .leftSide{
+        display: flex;
+        flex-direction: column;
+        background:tomato;
+        width: 70%;
+    }
+
+    .mainTemplate .rightSide{
+        
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        background:rgb(215, 153, 142);
+    }
+
+.bottomTemplate{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color:aquamarine;
+}

@@ -34,10 +34,8 @@ function course_cpt() {
 		'supports'           => array( 'title', 'editor',  'thumbnail' ),
         'menu_icon'         =>"dashicons-database-view"
 	);
-
 	register_post_type( 'courses', $args );
 }
-
 add_action( 'init', 'course_cpt' );
 
 /**ADD CUSTOM FIELDS */
@@ -63,13 +61,11 @@ function CF_Courses(){
     
     $price = $wpdb->get_var("SELECT `price` FROM `$ourdb` WHERE `ID` = $thisID ");   //! query the DB to return the `price` of the matching ID
     $subtitle = $wpdb->get_var("SELECT `subtitle` FROM `$ourdb` WHERE `ID` = $thisID ");   //! query the DB to return the `subtitle` of the matching ID
-    $content = $wpdb->get_var("SELECT `content` FROM `$ourdb` WHERE `ID` = $thisID ");   //! query the DB to return the `subtitle` of the matching ID
+    $curriculum = $wpdb->get_var("SELECT `curriculum` FROM `$ourdb` WHERE `ID` = $thisID ");   //! query the DB to return the `curriculum` of the matching ID
     $video = $wpdb->get_var("SELECT `video` FROM `$ourdb` WHERE `ID` = $thisID ");   //! query the DB to return the `subtitle` of the matching ID
 
     echo "OurDB:".$ourdb.". Post ID: ".$thisID." Price is: ".$price;
 
-    
-    
     ?>
     <div class='courseContainer'>
         <div class='fieldCountainer'>
@@ -86,7 +82,7 @@ function CF_Courses(){
         </div>
         <div class='fieldCountainer'>
             <h6>Curriculum</h6>
-            <input type="text" name="content" value="<?php echo $content; ?>">
+            <input type="text" name="curriculum" value="<?php echo $curriculum; ?>">
         </div>
     </div>
     <?php
@@ -140,7 +136,7 @@ function database_table(){
         video varchar(100) NOT NULL,
         price float(5) NOT NULL,
         thumbnail text NOT NULL,
-        content text NOT NULL,
+        curriculum text NOT NULL,
         PRIMARY KEY (ID)
     ) $charset; ";
     require_once(ABSPATH."wp-admin/includes/upgrade.php");
@@ -165,7 +161,7 @@ function save_custom_fields(){
     $price = array_key_exists('price',$_POST) ? $_POST['price'] : 0.0;
     $subtitle = array_key_exists('subtitle',$_POST) ? $_POST['subtitle'] : '';
     $video = array_key_exists('video',$_POST) ? $_POST['video'] : '';
-    $content = array_key_exists('content',$_POST) ? $_POST['content'] : '';
+    $curriculum = array_key_exists('curriculum',$_POST) ? $_POST['curriculum'] : '';
 
     // use built in insert function to add a new item into the table, use:  insert(tableName, [columns,])
     $wpdb->insert(
@@ -182,7 +178,7 @@ function save_custom_fields(){
             'title' => $title,
             'price' => floatval($price),    //convert string to float
             'subtitle' => $subtitle,
-            'content' => $content,
+            'curriculum' => $curriculum,
             'video' => $video,
         ],
         [
