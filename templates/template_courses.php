@@ -16,10 +16,14 @@
     $video = $wpdb->get_var("SELECT `video` FROM `$ourDB` WHERE `ID` = $ID ");
     $curriculum = $wpdb->get_var("SELECT `curriculum` FROM `$ourDB` WHERE `ID` = $ID ");
     
+    //separate the string into an array using the "-*-" as divider
     $exploded = explode("-*-", $curriculum);
 
     //get the video id from the link, and use it in embeded way inside iframe src=""
     $updatedLink = 'https://www.youtube.com/embed/'.substr($video,strrpos($video,"=")+1);
+
+    //get all of the course titles from ourdb to display in the More Products section
+    $IDs_arr = $wpdb->get_col("SELECT `id` FROM `$ourDB`")
 ?>
 
 <body class="bodyTemplate">
@@ -76,12 +80,33 @@
                     </a>
                     
                 <?php }; } ?>
-            
-            
-            
-            
         </div>
-    </div>    
+        
+        <div class="bottomTemplate">
+            <h1>Other Products</h1>
+            <div class='cards'>  
+            <?php 
+
+            if (count($IDs_arr)>0)
+            {
+                $i=0;
+                while(count($IDs_arr)>$i && $i<4){
+                    if ( $i > 0 )
+                    {   
+                        echo "<div class='card'> ";
+                        echo ("<image src='".get_the_post_thumbnail_url($IDs_arr[$i])."'/>");
+                        echo ("<p>".get_the_title($IDs_arr[$i])."</p>");
+                        
+                        echo "</div>";
+                    }
+                        
+                        
+                    $i++;
+                }
+            }
+            ?>
+            </div>
+        </div>    
 
     <script type="text/javascript">
         const button = document.getElementById("button");

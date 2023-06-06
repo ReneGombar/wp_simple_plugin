@@ -80,3 +80,18 @@
     width: 90%;
     background-color:aquamarine;
 }
+
+    .bottomTemplate .cards{
+        display: flex;
+        flex-direction: row;
+        gap:2em;
+        justify-content: space-around;
+    }
+
+    .bottomTemplate .cards .card{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        outline: red solid 1px;;
+        background-color:white;
+    }

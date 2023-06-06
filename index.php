@@ -43,7 +43,7 @@ function CF_Courses_Main(){
     add_meta_box(
         "cf_course_id",         // ID of the custom field
         "Course Custom Fields", // Title of the custom field
-        "CF_Courses",           // Function call to the below function
+        "CF_Courses",           //! Function call to the below function
         "courses",              // this is the name of the custom post type that is registered with register_post_type above
         "normal",               // Priority - location of our custom fields (below or side)
         "low",                  // Priority - position of the custom fields (up/down)
@@ -189,3 +189,16 @@ function save_custom_fields(){
 }
 
 add_action('save_post','save_custom_fields');
+
+/**
+ * LOAD ARCHIVE TEMPLATE
+ */
+
+function template_archive(){
+    if (is_archive()){
+        return plugin_dir_path(__FILE__).'templates/template_archive.php';
+    }
+    return $template;
+}
+
+add_filter('template_include','template_archive');
